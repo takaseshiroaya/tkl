@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS = -O2 --std=c++11
+CXXFLAGS = -O2 --std=c++0x
 OBJS = main.o dist_from_ll.o
 PROGRAM = main.exe
 .SUFFIXES: .cpp .o
