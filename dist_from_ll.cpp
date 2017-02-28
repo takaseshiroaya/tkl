@@ -18,8 +18,6 @@ double deg2rad(double deg){
 //ƒqƒ…ƒxƒj‚ÌŒö®@http://yamadarake.jp/trdi/report000001.html
 double hubenys_formula(double lat1, double lon1, double lat2, double lon2){
 
-	
-	
 	double dy = deg2rad(lat1 - lat2);
 	double dx = deg2rad(lon1 - lon2);
 	double avgy = deg2rad(lat1+lat2)/2;//ƒÊy
@@ -30,4 +28,7 @@ double hubenys_formula(double lat1, double lon1, double lat2, double lon2){
 	
 	return d;
 }
+
+
+
 
