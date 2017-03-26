@@ -5,22 +5,31 @@
 #include <vector>
 #include <string>
 
-#include "dist_from_ll.hpp"
-#include "test.hpp"
+//#include "dist_from_ll.hpp"
+//#include "test.hpp"
 #include "kagamin.hpp"
+#include "hubeny.hpp"
 
 using namespace std;
+
+//latとlonをもらってパラメータを返す関数
+//ライブラリなので使いやすいように書く
 
 int main(int argc, char** argv){
 	if(argc != 5){
 		cout << "lat1 lon1 lat2 lon2" <<endl;
 		exit(1);
 	}
-	double dlat1 = atof(argv[1]);
-	double dlon1 = atof(argv[2]);
-	double dlat2 = atof(argv[3]);
-	double dlon2 = atof(argv[4]);
-
+	double lat1 = atof(argv[1]);
+	double lon1 = atof(argv[2]);
+	double lat2 = atof(argv[3]);
+	double lon2 = atof(argv[4]);
+	
+	Hubeny hubeny;
+	double d = hubeny.dist(lat1, lon1, lat2, lon2);
+	cout << d << endl;
+	
+	/*
 	double rlat1 = deg2rad(dlat1);
 	double rlon1 = deg2rad(dlon1);
 	double rlat2 = deg2rad(dlat2);
@@ -40,6 +49,7 @@ int main(int argc, char** argv){
 		
 		tsuugakuro.push_back(buf);
 	}
+	*/
 		/*
 	double dn = hubenys_formula(lat1,lon1,lat2,lon2);
 	
