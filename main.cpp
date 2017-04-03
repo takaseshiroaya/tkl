@@ -27,7 +27,12 @@ int main(int argc, char** argv){
 	
 	Hubeny hubeny;
 	double d = hubeny.dist(lat1, lon1, lat2, lon2);
-	cout << d << endl;
+	cout << setprecision(15) << d << endl;
+	double df = hubeny.dist_fast(lat1,lon1,lat2,lon2);
+	cout << setprecision(15) << df << endl;
+	hubeny.set_ref_point(lat2,lon2);
+	double dr = hubeny.dist_from_ref_point(lat1,lon1);
+	cout << setprecision(15) << dr << endl;
 	
 	/*
 	double rlat1 = deg2rad(dlat1);

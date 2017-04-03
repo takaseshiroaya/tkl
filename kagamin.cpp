@@ -12,3 +12,18 @@ int stof_vec(vector<string>& str_vec, vector<double>& dbl_vec){
 		dbl_vec[i] = stof(str_vec[i]);
 	}
 }
+
+/*
+
+crossings_kanagawa2.csv　交差点座標
+
+handles/  kousatens/  teishis/
+
+運転操作の散布図を描く
+
+
+2	ヒュベニ
+2	対応する交差点を見つける
+3	交差点の運転操作を取る
+2	グラフを出力する
+*/

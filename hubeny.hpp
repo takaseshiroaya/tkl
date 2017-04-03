@@ -29,7 +29,7 @@ public:
 		double d = sqrt(pow(dy * M, 2) + pow(dx * N * cos(avgy), 2));
 		return d;
 	}
-	/*
+	
 	double dist_fast(double lat1, double lon1, double lat2, double lon2){
 		double dy = (deg2rad(lat1) - deg2rad(lat2));
 		double dx = (deg2rad(lon1) - deg2rad(lon2));
@@ -40,7 +40,6 @@ public:
 		double d = sqrt(pow(dy * M, 2) + pow(dx * N * cos(avgy), 2));
 		return d;
 	}
-	*/
 	
 	void set_ref_point(double lat0, double lon0){
 		this->rlat0 = deg2rad(lat0);
