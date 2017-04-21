@@ -7,8 +7,9 @@
 
 //#include "dist_from_ll.hpp"
 //#include "test.hpp"
-#include "kagamin.hpp"
+//#include "kagamin.hpp"
 #include "hubeny.hpp"
+#include "nearest_crossing.hpp"
 
 using namespace std;
 
@@ -20,6 +21,7 @@ int main(int argc, char** argv){
 		cout << "lat1 lon1 lat2 lon2" <<endl;
 		exit(1);
 	}
+	int i,j,k;
 	double lat1 = atof(argv[1]);
 	double lon1 = atof(argv[2]);
 	double lat2 = atof(argv[3]);
@@ -27,12 +29,31 @@ int main(int argc, char** argv){
 	
 	Hubeny hubeny;
 	double d = hubeny.dist(lat1, lon1, lat2, lon2);
-	cout << setprecision(15) << d << endl;
+	cout << "dist                : " << setprecision(15) << d << endl;
 	double df = hubeny.dist_fast(lat1,lon1,lat2,lon2);
-	cout << setprecision(15) << df << endl;
+	cout << "dist_fast(param ver): " << setprecision(15) << df << endl;
 	hubeny.set_ref_point(lat2,lon2);
 	double dr = hubeny.dist_from_ref_point(lat1,lon1);
-	cout << setprecision(15) << dr << endl;
+	cout << "dist_from_ref_point : " << setprecision(15) << dr << endl;
+	
+	
+	Crossings crossings;
+	//crossings.load_crossings("./local/kanagawa_test.csv");
+	crossings.load_crossings("./local/crossings_kanagawa2.csv");
+	
+	for(i=0; i<crossings.n_crossings; ++i){
+		int nearest_num = crossings.get_crossing_num(crossings.crossings[i][1],crossings.crossings[i][2]);
+		if(i != nearest_num ){
+			cout << i << " " << nearest_num;
+			//cout << "okasiidesu" << endl;
+			//exit(1);
+		}
+	}
+	//cout << "mondainaidesu" << endl;
+	
+	//cout << crossings.get_crossing_num(lat1,lon1) << endl; 
+	
+	
 	
 	/*
 	double rlat1 = deg2rad(dlat1);
